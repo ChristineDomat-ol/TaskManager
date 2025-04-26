@@ -9,31 +9,45 @@ namespace TaskManager
 
         static string[] Actions = new string[] {
             "[1] Display All Task",
-            "[2] Display All Task In Progress," +
+            "[2] Display All Task In Progress",
             "[3] Create a NEW task",
             "[4] Update a task",
-            "[5] Delete a task"
+            "[5] Delete a task",
+            "[6] Exit"
         };
         static void Main(string[] args)
         {
             DisplayActions();
             string action = GetUserInput();
 
-            switch (action)
+            while (action != "6")
             {
-                case "1":
-                    GetAllTasks();
-                    break;
-                case "2":
-                    string status = "In Progress";
-                    GetAllTasksByStatus(status);
-                    break;
+                switch (action)
+                {
+                    case "1":
+                        GetAllTasks();
+                        break;
+                    case "2":
+                        string status = "In Progress";
+                        GetAllTasksByStatus(status);
+                        break;
+                    case "3":
+                        break;
+                    case "4":
+                        break;
+                    case "5":
+                        DeleteTask();
+                        break;
+                }
+                DisplayActions();
+                action = GetUserInput();
             }
 
         }
 
         public static void DisplayActions()
         {
+            Console.WriteLine("---------------------");
             Console.WriteLine("ACTIONS: ");
             foreach (var action in Actions)
             {
@@ -65,20 +79,23 @@ namespace TaskManager
             }
         }
 
-        public static void CreateTask()
+        //public static void CreateTask()
+        //{
+        //    Console.Write("Enter Task Description: ");
+        //    string description = Console.ReadLine();
+
+        //    Console.Write("Enter Task Description: ");
+        //    string status = Console.ReadLine();
+
+        //    taskService.CreateTask(description, status);
+        //}
+
+        public static void DeleteTask()
         {
-            Console.Write("Enter Task Description: ");
-            string description = Console.ReadLine();
+            Console.Write("Enter Task ID to delete: ");
+            int taskId = int.Parse(Console.ReadLine());
 
-            TODOCommon.Task task = new TODOCommon.Task
-            {
-                Description = description,
-                CreationDate = DateTime.Now,
-                ModifiedDate = DateTime.Now,
-                Status = "Not Started"
-            };
-
-            taskService.CreateTask(task);
+            taskService.DeleteTask(taskId);
         }
 
     }

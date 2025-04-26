@@ -15,10 +15,10 @@ namespace TODODataService
             CreateDummyTasks();
         }
 
-        public void CreateTask()
-        {
-            CreateTask();
-        }
+        //public void CreateTask()
+        //{
+        //    CreateTask();
+        //}
 
         private void CreateDummyTasks()
         {
