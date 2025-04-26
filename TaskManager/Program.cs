@@ -34,6 +34,7 @@ namespace TaskManager
                     case "3":
                         break;
                     case "4":
+                        UpdateTask();
                         break;
                     case "5":
                         DeleteTask();
@@ -66,7 +67,7 @@ namespace TaskManager
         {
             foreach (var task in taskService.GetAllTasks())
             {
-                Console.WriteLine("Task ID: " + task.TaskId +  ", Description:" + task.Description + ", Status:" + task.Status);
+                Console.WriteLine("Task ID: " + task.TaskId + ", Description:" + task.Description + ", Status:" + task.Status);
             }
             return taskService.GetAllTasks();
         }
@@ -98,6 +99,21 @@ namespace TaskManager
             taskService.DeleteTask(taskId);
         }
 
+        public static void UpdateTask()
+        {
+            Console.Write("Enter Task ID to update: ");
+            int taskId = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter New Task Description: ");
+            string description = Console.ReadLine();
+
+            Console.Write("Enter New Task Status: ");
+            string status = Console.ReadLine();
+
+            taskService.UpdateTaskDescription(taskId, description);
+            taskService.UpdateTaskStatus(taskId, status);
+
+        }
     }
 }
 
