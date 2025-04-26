@@ -1,4 +1,5 @@
-﻿using TODOService;
+﻿using TODODataService;
+using TODOService;
 
 namespace TaskManager
 {
@@ -21,7 +22,7 @@ namespace TaskManager
             switch (action)
             {
                 case "1":
-                    DisplayAllTask();
+                    GetAllTasks();
                     break;
             }
 
@@ -43,12 +44,13 @@ namespace TaskManager
             return action;
         }
 
-        public static void DisplayAllTask()
+        public static List<TODOCommon.Task> GetAllTasks()
         {
             foreach (var task in taskService.GetAllTasks())
             {
-                Console.WriteLine(task);
+                Console.WriteLine($"Task ID: {task.TaskId}, Description: {task.Description}, Status: {task.Status}");
             }
+            return taskService.GetAllTasks();
         }
     }
 }
