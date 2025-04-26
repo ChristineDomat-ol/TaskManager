@@ -25,8 +25,7 @@ namespace TaskManager
                     GetAllTasks();
                     break;
                 case "2":
-                    Console.Write("Enter Status: ");
-                    string status = Console.ReadLine();
+                    string status = "In Progress";
                     GetAllTasksByStatus(status);
                     break;
             }
@@ -64,6 +63,22 @@ namespace TaskManager
             {
                 Console.WriteLine("Task ID: " + task.TaskId + ", Description:" + task.Description + ", Status:" + task.Status);
             }
+        }
+
+        public static void CreateTask()
+        {
+            Console.Write("Enter Task Description: ");
+            string description = Console.ReadLine();
+
+            TODOCommon.Task task = new TODOCommon.Task
+            {
+                Description = description,
+                CreationDate = DateTime.Now,
+                ModifiedDate = DateTime.Now,
+                Status = "Not Started"
+            };
+
+            taskService.CreateTask(task);
         }
 
     }

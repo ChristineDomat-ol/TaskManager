@@ -19,7 +19,7 @@ namespace TODOCommon
             get { return _status; }
             set
             {
-                if (value.Equals("Not_Started") || value.Equals("In_Progress") || value.Equals("Done"))
+                if (value.Equals("Not Started") || value.Equals("In Progress") || value.Equals("Done"))
                 {
                     _status = value;
                 }

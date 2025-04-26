@@ -69,5 +69,31 @@ namespace TODOService
         {
             taskDataService.DeleteTask(id);
         }
+
+        public void CreateTask(string description, string status)
+        {
+            List<TODOCommon.Task> tasks = GetAllTasks();
+            int taskIdCounter = 0;
+
+            foreach (var task in tasks)
+            {
+                if (task.TaskId > taskIdCounter)
+                {
+                    taskIdCounter = task.TaskId;
+                }
+            }
+
+            taskIdCounter++;
+            TODOCommon.Task newTask = new TODOCommon.Task
+            {
+                TaskId = taskIdCounter,
+                Description = description,
+                CreationDate = DateTime.Now,
+                ModifiedDate = DateTime.Now,
+                Status = status
+            };
+
+            taskDataService.CreateTask(newTask);
+        }
     }
 }

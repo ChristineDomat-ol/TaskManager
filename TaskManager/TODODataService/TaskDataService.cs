@@ -15,6 +15,11 @@ namespace TODODataService
             CreateDummyTasks();
         }
 
+        public void CreateTask()
+        {
+            CreateTask();
+        }
+
         private void CreateDummyTasks()
         {
             int taskIdCounter = 0;
