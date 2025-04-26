@@ -24,6 +24,11 @@ namespace TaskManager
                 case "1":
                     GetAllTasks();
                     break;
+                case "2":
+                    Console.Write("Enter Status: ");
+                    string status = Console.ReadLine();
+                    GetAllTasksByStatus(status);
+                    break;
             }
 
         }
@@ -48,10 +53,19 @@ namespace TaskManager
         {
             foreach (var task in taskService.GetAllTasks())
             {
-                Console.WriteLine($"Task ID: {task.TaskId}, Description: {task.Description}, Status: {task.Status}");
+                Console.WriteLine("Task ID: " + task.TaskId +  ", Description:" + task.Description + ", Status:" + task.Status);
             }
             return taskService.GetAllTasks();
         }
+
+        public static void GetAllTasksByStatus(string status)
+        {
+            foreach (var task in taskService.GetAllTasksByStatus(status))
+            {
+                Console.WriteLine("Task ID: " + task.TaskId + ", Description:" + task.Description + ", Status:" + task.Status);
+            }
+        }
+
     }
 }
 
