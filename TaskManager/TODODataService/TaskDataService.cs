@@ -9,20 +9,28 @@ namespace TODODataService
     public class TaskDataService
     {
         private List<TODOCommon.Task> tasks = new List<TODOCommon.Task>();
+        int taskIdCounter = 0;
 
         public TaskDataService()
         {
             CreateDummyTasks();
         }
 
-        //public void CreateTask()
-        //{
-        //    CreateTask();
-        //}
+        public void CreateTask(string description, string status)
+        {
+            taskIdCounter++;
+            tasks.Add(new TODOCommon.Task
+            {
+                TaskId = taskIdCounter,
+                Description = description,
+                CreationDate = DateTime.Now,
+                ModifiedDate = DateTime.Now,
+                Status = status
+            });
+        }
 
         private void CreateDummyTasks()
         {
-            int taskIdCounter = 0;
 
             taskIdCounter++;
             tasks.Add(new TODOCommon.Task

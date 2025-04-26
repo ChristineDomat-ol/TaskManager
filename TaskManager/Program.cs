@@ -32,7 +32,7 @@ namespace TaskManager
                         GetAllTasksByStatus(status);
                         break;
                     case "3":
-                        //CreateTask();
+                        CreateTask();
                         break;
                     case "4":
                         UpdateTask();
@@ -81,16 +81,16 @@ namespace TaskManager
             }
         }
 
-        //public static void CreateTask()
-        //{
-        //    Console.Write("Enter Task Description: ");
-        //    string description = Console.ReadLine();
+        public static void CreateTask()
+        {
+            Console.Write("Enter Task Description: ");
+            string description = Console.ReadLine();
 
-        //    Console.Write("Enter Task Description: ");
-        //    string status = Console.ReadLine();
+            Console.Write("Enter Task Status: ");
+            string status = Console.ReadLine();
 
-        //    taskService.CreateTask(description, status);
-        //}
+            taskService.CreateTask(description, status);
+        }
 
         public static void DeleteTask()
         {
