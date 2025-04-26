@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="TODOCommon\**" />
+    <Compile Remove="TODODataService\**" />
+    <Compile Remove="TODOService\**" />
+    <EmbeddedResource Remove="TODOCommon\**" />
+    <EmbeddedResource Remove="TODODataService\**" />
+    <EmbeddedResource Remove="TODOService\**" />
+    <None Remove="TODOCommon\**" />
+    <None Remove="TODODataService\**" />
+    <None Remove="TODOService\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="TODOService\TODOService.csproj" />
+  </ItemGroup>
+
+</Project>
